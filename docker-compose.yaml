@@ -1,0 +1,35 @@
+networks:
+  appnet:
+    driver: bridge
+
+services:
+
+  c1_backend:
+    image: c1_backend
+    container_name: c1_backend
+    networks:
+      - appnet
+    ports:
+      - "5000:5000"  # Flask API server
+
+  c1_frontend:
+    image: c1_frontend
+    container_name: c1_frontend
+    networks:
+      - appnet
+    environment:
+      - DISPLAY=host.docker.internal:0
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+
+  container2_backend:
+    image: container2_backend
+    container_name: container2_backend
+    networks:
+      - appnet
+    ports:
+      - "5001:5000"  
+    environment:
+      - DISPLAY=host.docker.internal:0
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
