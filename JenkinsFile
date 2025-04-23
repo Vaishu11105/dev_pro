@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repo') {
+            steps {
+                git url: 'file:///C:\Users\pujitha\Desktop\docker_project'
+            }
+        }
+
+        stage('Build Images') {
+            steps {
+                script {
+                    sh 'docker-compose build'
+                }
+            }
+        }
+
+        stage('Run Containers') {
+            steps {
+                script {
+                    sh 'docker-compose up -d'
+                }
+            }
+        }
+
+        stage('Test Containers') {
+            steps {
+                script {
+                    sh 'docker ps'
+                }
+            }
+        }
+    }
+}
