@@ -6,8 +6,8 @@ class App:
 
     def __init__(self):
         self.root = Tk()
-        self.root.title("Login/Register")
-        self.root.geometry("400x400")
+        self.root.title("Login/Registered")
+        self.root.geometry("400x500")
         self.root.configure(bg="#34495e")
         self.login_gui()
         self.root.mainloop()
