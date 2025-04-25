@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('stage1') {
             steps {
-               git branch: 'main', url:'https://github.com/purushothamkotha963/project.git'
+               git branch: 'master', url:'https://github.com/purushothamkotha963/project.git'
             }
         }
 
