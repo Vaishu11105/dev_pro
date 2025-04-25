@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git branch: 'main', url: 'https://github.com/purushothamkotha963/project-io.git'
+              checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'new_build', url: 'https://github.com/purushothamkotha963/project-io.git']])
             }
         }
 
