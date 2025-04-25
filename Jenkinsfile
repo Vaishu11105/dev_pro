@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repo') {
+        stage('stage1') {
             steps {
                 git branch: 'main', url: 'https://github.com/purushothamkotha963/project-io.git'
             }
